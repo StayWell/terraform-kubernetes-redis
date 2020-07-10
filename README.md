@@ -1,6 +1,6 @@
 
 Command to run to setup cluster initially
-- kubectl exec -it redis-cluster-xxxxxxx-xxxxx  -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379' -n (namespace))
+- kubectl exec -it redis-cluster-xxxxxxx-xxxxx -n (namespace) -- redis-cli --cluster create --cluster-replicas 1 $(kubectl get pods -l app=redis-cluster -o jsonpath='{range.items[*]}{.status.podIP}:6379' -n (namespace))
 
 Get ip of pods
 - kubectl get pods -o wide
